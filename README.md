@@ -29,3 +29,8 @@
 ## License
 
 ## Contact Information
+
+## To Do
+
+* _Get guess letters_
+* _Finish check letters prototype_
