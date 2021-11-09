@@ -5,26 +5,19 @@ import DinoService from './dino-service';
 import Game from './game-object';
 
 $(document).ready(function() {
-  let game = new Game;
-
-  const testWord = 'Proceratosaurus';
-
-  const parsedWord = testWord.split("");
-  const wordLength = parsedWord.length;
-  let shownWord = new Array(wordLength);
-
+  let dinoService = new DinoService();
+  const dino = dinoService.getDino(1,1);
+  console.log(JSON.parse(dino));
+  let game = new Game(JSON.parse(dino));
+  game.createArray();
+  displayWord(game.shownArray.join(' '));
   $('#submit').click(function() {
-    let guess = $('#guess').val();
-    if (parsedWord.includes(guess)) {
-      console.log('hit');
-      const letterIndex = game.checkLetters(parsedWord, guess);
-      shownWord[letterIndex] = parsedWord[letterIndex];
-    } else {
-      console.log('miss');
-      game.miss++;
-    }
-    if (game.gameOverCheck()) {
-      console.log('GameOver');
-    }
+    game.setScore($('#guess').val());
+    console.table(game);
+    displayWord(game.shownArray.join(' '));
   });
 });
+
+function displayWord(word) {
+  $('#dinoWord').html(word);
+}

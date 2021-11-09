@@ -1,4 +1,4 @@
-class Game {
+export default class Game {
   constructor(dinoWord) {
     this.word = dinoWord.toLowerCase();
     this.splitWord = this.word.split('');
@@ -32,7 +32,7 @@ class Game {
         this.gameOverCheck();
       }
     } else {
-      console.log('You already picked that one')
+      console.log('You already picked that one');
     }
   }
 
@@ -52,16 +52,3 @@ class Game {
     }
   }
 }
-
-let game = new Game('Proceratosaurus');
-game.createArray();
-game.setScore('s');
-game.setScore('p');
-game.setScore('r');
-game.setScore('o');
-game.setScore('c');
-game.setScore('u');
-game.setScore('a');
-game.setScore('e');
-game.setScore('t');
-console.table(game);
