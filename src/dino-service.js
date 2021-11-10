@@ -1,5 +1,5 @@
 export default class DinoService {
-  static getDino(paragraphs, words) {
+  getDino(paragraphs, words) {
     return new Promise(function(resolve, reject) {
       let request = new XMLHttpRequest();
       const url = `https://dinoipsum.com/api/?format=json&paragraphs=${paragraphs}&words=${words}`;
